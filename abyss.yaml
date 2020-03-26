@@ -1,0 +1,16 @@
+name: `${yourDockerImageName}`
+build:
+  beta:
+    - python3 env_writer.py  public/abcdefg.html
+    - npm install
+    - npm run build
+    - docker build -t `${yourDockerImageName}`:latest .
+  prod:
+    - python3 env_writer.py  public/abcdefg.html
+    - npm install
+    - npm run build
+    - docker build -t `${yourDockerImageName}`:latest .
+release: ocean
+email:
+  - `${yourEmail}`
+
